@@ -1,0 +1,22 @@
+{
+  "name": "todo_django",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OlyaIvanovs/todo_django.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OlyaIvanovs/todo_django/issues"
+  },
+  "homepage": "https://github.com/OlyaIvanovs/todo_django#readme",
+  "devDependencies": {
+    "bulma": "^0.6.0"
+  }
+}

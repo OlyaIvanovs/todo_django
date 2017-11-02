@@ -4,4 +4,9 @@
     <h3>{{ todo.title }}</h3>
     <p>{{ todo.text }}</p>
     <p>Created {{ todo.created_at }}</p>
+    <form action="{% url 'delete_todo' todo.id %}" method="POST">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{% url 'edit_todo' todo.id %}">Edit</a>
 {% endblock %}

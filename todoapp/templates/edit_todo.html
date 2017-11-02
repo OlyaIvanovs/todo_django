@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+    <a href="{% url 'index' %}">All todos</a>
+    <h3>Edit Todo</h3>
+    <form action="{% url 'edit_todo' todo.id %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="title" placeholder="Title" value="{{ todo.title }}"/><br><br>
+        <textarea name="text" placeholder="Text">{{ todo.text }}</textarea><br>
+        <input type="submit" value="Edit" />
+    </form>
+{% endblock %}

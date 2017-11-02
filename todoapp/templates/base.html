@@ -3,14 +3,16 @@
     <head>
       <title>Todolist</title>
       {% load static %}
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel='stylesheet' href="{% static 'css/style.css' %}">
+      <link rel='stylesheet' href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css">
       <meta charset="utf-8">
     </head>
     <body>
     </body>
         <header>
             <h1>Todolist</h1>
-        
+            <a href="{% url 'add_todo' %}">Add Todo</a>
             <hr>
         </header>
 
