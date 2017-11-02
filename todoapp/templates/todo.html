@@ -1,12 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
-    <a href="{% url 'index' %}">All todos</a>
-    <h3>{{ todo.title }}</h3>
+    <nav class="breadcrumb" aria-label="breadcrumbs">
+      <ul>
+        <li><a href="{% url 'index' %}">
+            <span class="icon is-small"><i class="fa fa-home"></i></span><span>All Todos</span>
+        </a></li>
+      </ul>
+    </nav>
+
+
+    <h3 class="title is-4">{{ todo.title }}</h3>
     <p>{{ todo.text }}</p>
     <p>Created {{ todo.created_at }}</p>
-    <form action="{% url 'delete_todo' todo.id %}" method="POST">
+    <br>
+    <a class="button is-success" href="{% url 'edit_todo' todo.id %}">Edit</a>
+    <form action="{% url 'delete_todo' todo.id %}" method="POST" style="display: inline-block;">
         {% csrf_token %}
-        <button type="submit">Delete</button>
-    </form>
-    <a href="{% url 'edit_todo' todo.id %}">Edit</a>
+        <button type="submit" class="button is-danger">Delete</button>
+    </form> 
 {% endblock %}

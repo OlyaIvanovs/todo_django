@@ -1,20 +1,37 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="columns">
+    <div class="column">&nbsp;</div>
+  <div class="column is-two-thirds">
     {% if todos %}
-    <ul>
-        {% for todo in todos %}
-            <li>
-                <a href="{% url 'todo' todo.id %}">
-                    {{ todo.title }}: 
-                </a>
-                {{ todo.text }}
-                <form action="{% url 'delete_todo' todo.id %}" method="POST">
-                    {% csrf_token %}
-                    <button type="submit">Delete</button>
-                </form>
-            </li>
-        {% endfor %}
-    </ul>
-    {% endif %}
+    <table class="table is-striped is-fullwidth">
+        <thead>
+            <tr>
+                <th>Todo</th>
+                <th>Comment</th>
+                <th>Activities</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for todo in todos %}
+            <tr>
+                <td>{{ todo.title }}</td>
+                <td>{{ todo.text }}</td>
+                <td> 
+                    <a class="button is-info" href="{% url 'todo' todo.id %}">Show more</a>
+                    <a class="button is-success" href="{% url 'edit_todo' todo.id %}">Edit</a>
+                    <form action="{% url 'delete_todo' todo.id %}" method="POST" style="display: inline-block;">
+                        {% csrf_token %}
+                        <button type="submit" class="button is-danger">Delete</button>
+                    </form> 
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %} 
+  </div>
+  <div class="column">&nbsp;</div>
+</div>   
 {% endblock %}

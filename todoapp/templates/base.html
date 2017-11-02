@@ -10,14 +10,20 @@
     </head>
     <body>
     </body>
+      <div class="container">
         <header>
-            <h1>Todolist</h1>
-            <a href="{% url 'add_todo' %}">Add Todo</a>
+            <br>
+            <h1 class="title">Todolist</h1>
+            <a href="{% url 'add_todo' %}">
+              <span class="icon is-small"><i class="fa fa-plus"></i></span><span>
+              Add Todo
+            </a>
             <hr>
         </header>
-
-        {% block content %}
-        {% endblock %}
-
+        <section>
+          {% block content %}{% endblock %}
+        </section>
+        <footer></footer>
+      </div>
     </body>
 </html>

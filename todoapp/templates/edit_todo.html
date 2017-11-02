@@ -1,11 +1,41 @@
 {% extends "base.html" %}
 {% block content %}
-    <a href="{% url 'index' %}">All todos</a>
-    <h3>Edit Todo</h3>
+    <nav class="breadcrumb" aria-label="breadcrumbs">
+      <ul>
+        <li><a href="{% url 'index' %}">
+            <span class="icon is-small"><i class="fa fa-home"></i></span><span>All Todos</span>
+        </a></li>
+      </ul>
+    </nav>
+
+    <h3 class="title is-4">Edit todo</h3>
     <form action="{% url 'edit_todo' todo.id %}" method="post">
         {% csrf_token %}
         <input type="text" name="title" placeholder="Title" value="{{ todo.title }}"/><br><br>
         <textarea name="text" placeholder="Text">{{ todo.text }}</textarea><br>
-        <input type="submit" value="Edit" />
+        <input type="submit" class="button is-success" value="Edit" />
     </form>
+
+
+    <form action="{% url 'edit_todo' todo.id %}" method="post">
+        {% csrf_token %}
+
+        <div class="field">
+          <label class="label">Name</label>
+          <div class="control">
+            <input class="input" type="text" name="title" placeholder="e.g Wash my hands" value="{{ todo.title }}">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Comment</label>
+          <div class="control">
+            <textarea class="textarea" type="email" placeholder="e.g. with soap">{{ todo.text }}</textarea>
+          </div>
+        </div>
+
+        <input type="submit" class="button is-success" value="Edit" />
+    </form>
+
+    
 {% endblock %}
