@@ -3,19 +3,19 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
-from rest_fremework.views import APIView
-from rest_fremework.response import Response
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
 from .serializers import TodoSerializer
 from .models import Todo
 
 # List all todos or create a new one 
-# todos/
+# todoslist/
 class TodoList(APIView):
 
-    def get(self):
+    def get(self, request):
         todos = Todo.objects.all()
-        serializer = TodoSerializer(todo, many=true);
+        serializer = TodoSerializer(todos, many=True);
         return Response(serializer.data)
 
     def post(self):
