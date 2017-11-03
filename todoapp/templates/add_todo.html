@@ -1,10 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
-    <h3>Add Todo</h3>
+    <nav class="breadcrumb" aria-label="breadcrumbs">
+      <ul>
+        <li><a href="{% url 'index' %}">
+            <span class="icon is-small"><i class="fa fa-home"></i></span><span>All Todos</span>
+        </a></li>
+      </ul>
+    </nav>
+
+    <h3 class="title is-4">Add Todo</h3>
+
     <form action="{% url 'add_todo' %}" method="post">
         {% csrf_token %}
-        <input type="text" name="title" placeholder="Title" /><br><br>
-        <textarea name="text" placeholder="Text"></textarea><br>
-        <input type="submit" value="Add" />
+
+        <div class="field">
+          <label class="label">Name</label>
+          <div class="control">
+            <input class="input" type="text" name="title" placeholder="e.g Wash my hands"/>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Comment</label>
+          <div class="control">
+            <textarea name="text" class="textarea" type="email" placeholder="e.g. with soap"></textarea>
+          </div>
+        </div>
+
+        <input type="submit" class="button is-success" value="Add" />
     </form>
 {% endblock %}

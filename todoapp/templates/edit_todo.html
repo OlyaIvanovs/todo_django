@@ -9,13 +9,6 @@
     </nav>
 
     <h3 class="title is-4">Edit todo</h3>
-    <form action="{% url 'edit_todo' todo.id %}" method="post">
-        {% csrf_token %}
-        <input type="text" name="title" placeholder="Title" value="{{ todo.title }}"/><br><br>
-        <textarea name="text" placeholder="Text">{{ todo.text }}</textarea><br>
-        <input type="submit" class="button is-success" value="Edit" />
-    </form>
-
 
     <form action="{% url 'edit_todo' todo.id %}" method="post">
         {% csrf_token %}
@@ -30,7 +23,7 @@
         <div class="field">
           <label class="label">Comment</label>
           <div class="control">
-            <textarea class="textarea" type="email" placeholder="e.g. with soap">{{ todo.text }}</textarea>
+            <textarea name="text" class="textarea" type="email" placeholder="e.g. with soap">{{ todo.text }}</textarea>
           </div>
         </div>
 
